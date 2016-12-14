@@ -1,3 +1,3 @@
 serve:
-    npm install
+	npm install
 	./bin/serve
