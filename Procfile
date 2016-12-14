@@ -1,1 +1,1 @@
-node: make serve
+web: make serve
