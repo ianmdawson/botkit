@@ -244,3 +244,9 @@ function formatUptime(uptime) {
     uptime = uptime + ' ' + unit;
     return uptime;
 }
+
+controller.hears(['problem'],
+    'direct_message,direct_mention,mention,message_received', function(bot, message) {
+        bot.reply(message, "hiya");
+    }
+)
