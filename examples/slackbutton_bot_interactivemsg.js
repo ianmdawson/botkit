@@ -70,10 +70,12 @@ function trackBot(bot) {
 
 
 controller.on('interactive_message_callback', function(bot, message) {
-
+    console.log('callback');
     var ids = message.callback_id.split(/\-/);
     var user_id = ids[0];
     var item_id = ids[1];
+    console.log(user_id);
+    console.log(item_id);
 
     controller.storage.users.get(user_id, function(err, user) {
 
