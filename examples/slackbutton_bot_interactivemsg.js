@@ -13,7 +13,7 @@ This is a sample Slack Button application that adds a bot to one or many slack t
     -> https://api.slack.com/applications/new
     -> Add the Redirect URI: http://localhost:3000/oauth
   Run your bot from the command line:
-    clientId=<my client id> clientSecret=<my client secret> port=3000 node slackbutton_bot_interactivemsg.js
+    CLIENT_ID=<my client id> clientSecret=<my client secret> port=3000 node slackbutton_bot_interactivemsg.js
 # USE THE APP
   Add the app to your Slack by visiting the login page:
     -> http://localhost:3000/login
@@ -27,11 +27,11 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('../lib/Botkit.js');
 if (process.env.ENVIRONMENT !== 'production') {
-    require('dotenv').config();
+  require('dotenv').config();
 }
 
-if (!process.env.clientId || !process.env.clientSecret || !process.env.port) {
-  console.log('Error: Specify clientId clientSecret and port in environment');
+if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.port) {
+  console.log('Error: Specify CLIENT_ID clientSecret and port in environment');
   process.exit(1);
 }
 
@@ -42,8 +42,8 @@ var controller = Botkit.slackbot({
   // rtm_receive_messages: false, // disable rtm_receive_messages if you enable events api
 }).configureSlackApp(
   {
-    clientId: process.env.clientId,
-    clientSecret: process.env.clientSecret,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
     scopes: ['bot'],
   }
 );
